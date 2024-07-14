@@ -1,0 +1,31 @@
+.card {
+    margin: 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+  }
+  
+  .model {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333333; 
+  }
+  
+  .make {
+    color: #666666; 
+  }
+  
+  .details {
+    color: #444444; 
+  }
+  
+  .button {
+    margin-top: 16px;
+    background-color: #007bff; 
+    color: white;
+    &:hover {
+      background-color: #0056b3; 
+    }
+  }
+  

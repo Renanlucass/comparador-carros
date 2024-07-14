@@ -1,0 +1,19 @@
+.tableContainer {
+    margin-top: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #ffffff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tableHeader {
+    background-color: #003366; 
+    color: white;
+    font-weight: bold;
+  }
+  
+  .tableCell {
+    padding: 16px;
+    color: #333333; 
+  }
+      
