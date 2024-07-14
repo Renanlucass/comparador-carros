@@ -1,0 +1,33 @@
+.container {
+    padding: 2rem;
+}
+
+.form {
+    margin-top: 2rem;
+}
+
+.button {
+    margin-top: 1rem;
+    background-color: #003366;
+    color: white;
+}
+
+.textField {
+    margin-bottom: 1rem;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.addCarButton {
+    margin-top: 1rem;
+    background-color: #003366;
+    color: white;
+}
+
+.alert {
+    margin-top: 20px;
+    background-color: #e3f2fd;
+    color: #01579b;
+}
