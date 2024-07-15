@@ -18,7 +18,7 @@ const ComparisonTable = ({ cars }) => {
           </TableRow>
           
         </TableHead>
-        
+
           <TableRow>
             <TableCell className={styles.tableCell}>Ano</TableCell>
             {cars.map((car, index) => (
@@ -41,18 +41,24 @@ const ComparisonTable = ({ cars }) => {
             ))}
           </TableRow>
 
+          <TableRow>
+            <TableCell className={styles.tableCell}>Combustível</TableCell>
+            {cars.map((car, index) => (
+              <TableCell key={index} className={styles.tableCell}>{car.typeFuel}</TableCell>
+            ))}
+          </TableRow>
 
           <TableRow>
             <TableCell className={styles.tableCell}>Consumo de Combustível</TableCell>
             {cars.map((car, index) => (
-              <TableCell key={index} className={styles.tableCell}>{car.fuelConsumption} km/l</TableCell>
+              <TableCell key={index} className={styles.tableCell}>{car.fuelConsumption} KM/L</TableCell>
             ))}
           </TableRow>
 
           <TableRow>
             <TableCell className={styles.tableCell}>Potência</TableCell>
             {cars.map((car, index) => (
-              <TableCell key={index} className={styles.tableCell}>{car.horsepower} hp</TableCell>
+              <TableCell key={index} className={styles.tableCell}>{car.horsepower} CV</TableCell>
             ))}
           </TableRow>
 
@@ -67,6 +73,13 @@ const ComparisonTable = ({ cars }) => {
             <TableCell className={styles.tableCell}>Aceleração (0-100 km/h)</TableCell>
             {cars.map((car, index) => (
               <TableCell key={index} className={styles.tableCell}>{car.acceleration} s</TableCell>
+            ))}
+          </TableRow>
+
+          <TableRow>
+            <TableCell className={styles.tableCell}>Aceleração Máxima</TableCell>
+            {cars.map((car, index) => (
+              <TableCell key={index} className={styles.tableCell}>{car.maxAcceleration} KM/H</TableCell>
             ))}
           </TableRow>
 
