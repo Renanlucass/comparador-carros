@@ -12,9 +12,11 @@ const AddCar = () => {
 
   return (
     <Container className={styles.container}>
+
       <Typography variant="h2" color="#003366" gutterBottom>
         Adicionar Novo Carro
       </Typography>
+
       <form onSubmit={handleSubmit} className={styles.form}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
@@ -25,6 +27,7 @@ const AddCar = () => {
               required
             />
           </Grid>
+
           <Grid item xs={12} sm={6}>
             <TextField
               label="Marca"
@@ -33,6 +36,7 @@ const AddCar = () => {
               required
             />
           </Grid>
+
           <Grid item xs={12} sm={6}>
             <TextField
               label="Preço"
@@ -42,6 +46,7 @@ const AddCar = () => {
               required
             />
           </Grid>
+
           <Grid item xs={12} sm={6}>
             <TextField
               label="Motor"
@@ -50,6 +55,7 @@ const AddCar = () => {
               required
             />
           </Grid>
+
           <Grid item xs={12} sm={6}>
             <TextField
               label="Consumo de Combustível (km/l)"
@@ -59,6 +65,7 @@ const AddCar = () => {
               required
             />
           </Grid>
+
           <Grid item xs={12} sm={6}>
             <TextField
               label="Potência (hp)"
@@ -68,6 +75,7 @@ const AddCar = () => {
               required
             />
           </Grid>
+
           <Grid item xs={12} sm={6}>
             <TextField
               label="Torque (Nm)"
@@ -86,6 +94,7 @@ const AddCar = () => {
               required
             />
           </Grid>
+
           <Grid item xs={12} sm={6}>
             <TextField
               label="Transmissão"
@@ -94,6 +103,7 @@ const AddCar = () => {
               required
             />
           </Grid>
+
           <Grid item xs={12}>
             <Button
               type="submit"
@@ -104,13 +114,17 @@ const AddCar = () => {
               Adicionar Carro
             </Button>
           </Grid>
+
         </Grid>
+
         {showAlert && (
           <Alert severity="info" className={styles.alert}>
             Esta página é apenas para fins apresentativos. A lógica de adição de carros não está implementada.
           </Alert>
         )}
+
       </form>
+      
     </Container>
   );
 };

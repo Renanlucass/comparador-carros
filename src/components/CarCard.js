@@ -44,7 +44,9 @@ const CarCard = ({ car, onAdd }) => {
 
             </CardContent>
 
-            <Button className={styles.button} size="small" onClick={() => onAdd(car)}>Adicionar à Comparação</Button>
+            <div className={styles['button-container']}>
+                <Button className={styles.button} size="small" onClick={() => onAdd(car)}>Adicionar à Comparação</Button>
+            </div>
 
         </Card>
     );
