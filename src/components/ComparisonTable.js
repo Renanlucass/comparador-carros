@@ -5,19 +5,24 @@ import styles from '../styles/ComparisonTable.module.css';
 const ComparisonTable = ({ cars }) => {
   return (
     <TableContainer component={Paper} className={styles.tableContainer}>
-
       <Table>
-
         <TableHead>
-
           <TableRow>
             <TableCell className={styles.tableHeader}>Recurso</TableCell>
             {cars.map((car, index) => (
               <TableCell key={index} className={styles.tableHeader}>{car.model}</TableCell>
             ))}
           </TableRow>
-          
         </TableHead>
+
+        <TableBody>
+
+          <TableRow>
+            <TableCell className={styles.tableCell}>Marca</TableCell>
+            {cars.map((car, index) => (
+              <TableCell key={index} className={styles.tableCell}>{car.make}</TableCell>
+            ))}
+          </TableRow>
 
           <TableRow>
             <TableCell className={styles.tableCell}>Ano</TableCell>
@@ -26,7 +31,6 @@ const ComparisonTable = ({ cars }) => {
             ))}
           </TableRow>
 
-        <TableBody>
           <TableRow>
             <TableCell className={styles.tableCell}>Preço</TableCell>
             {cars.map((car, index) => (
@@ -91,9 +95,7 @@ const ComparisonTable = ({ cars }) => {
           </TableRow>
 
         </TableBody>
-
       </Table>
-
     </TableContainer>
   );
 };
