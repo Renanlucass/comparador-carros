@@ -67,3 +67,18 @@
   background-color: #002244;
   transform: translateY(-2px);
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .model {
+    font-size: 1rem;
+  }
+  
+  .make, .details {
+    margin: 8px 8px;
+  }
+
+  .button {
+    padding: 8px 16px;
+  }
+}

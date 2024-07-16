@@ -1,19 +1,26 @@
 .tableContainer {
-    margin-top: 16px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #ffffff; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .tableHeader {
-    background-color: #003366; 
-    color: white;
-    font-weight: bold;
-  }
-  
+  margin-top: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para a tabela */
+.tableHeader {
+  background-color: #003366; 
+  color: white;
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
   .tableCell {
-    padding: 16px;
-    color: #333333; 
+    padding: 8px;
+    font-size: 0.9rem;
   }
-      
+
+  .tableHeader {
+    font-size: 1rem;
+  }
+}

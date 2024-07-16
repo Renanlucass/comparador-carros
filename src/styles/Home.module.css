@@ -67,3 +67,21 @@
   background-color: #ff1a1a;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 768px) {
+  .toolbar {
+    display: grid;
+    justify-content: center;
+    place-items: center;
+  }
+
+  .title{
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+
+  .addCarButton{
+    width: 14rem;
+
+  }
+} 
