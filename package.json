@@ -13,8 +13,6 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.16.1",
     "@mui/material": "^5.16.1",
-    "axios": "^1.7.2",
-    "car-query": "^1.0.12",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
