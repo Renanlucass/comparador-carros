@@ -24,11 +24,13 @@
 .title {
   font-size: 2rem;
   color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .addCarButton {
   border-radius: 50px;
   background-color: #ef7d00;
+  font-family: Arial, Helvetica, sans-serif;
   color: #ffffff;
   text-transform: none;
   padding: 10px 20px;
@@ -47,6 +49,7 @@
 
 .subheader {
   margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
   text-align: center;
   color: #003366;
