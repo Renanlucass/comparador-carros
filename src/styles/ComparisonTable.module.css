@@ -6,14 +6,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para a tabela */
 .tableHeader {
   background-color: #003366; 
   color: white;
   font-weight: bold;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .tableCell {
     padding: 8px;
