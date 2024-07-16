@@ -64,7 +64,7 @@ const carsData = [
     make: 'Land Rover',
     price: ' 681.950',
     year: '2023 - 2024',
-    engine: 'Ingenium P400e 2.0L VVT Turbo / Elétrico',
+    engine: 'Ingenium P400e 2.0L VVT Turbo',
     fuelConsumption: 9.4,
     typeFuel: 'Gasolina / Eletricidade',
     horsepower: '300 (G) / 116 (H) = 404',

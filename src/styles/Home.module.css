@@ -34,10 +34,11 @@
   padding: 10px 20px;
   display: flex;
   align-items: center;
+  transition: background-color 0.5s ease;
 }
 
 .addCarButton:hover {
-  background-color: #FF8C00;
+  background-color: #ffa500;
 }
 
 .addCarIcon {
@@ -53,4 +54,16 @@
 
 .resetButton {
   margin-top: 20px;
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resetButton:hover {
+  background-color: #ff1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
