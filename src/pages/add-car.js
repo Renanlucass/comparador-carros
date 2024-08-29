@@ -1,19 +1,58 @@
-import React from 'react';
-import { Container, Typography, TextField, Button, Grid, Alert } from '@mui/material';
+import React, { useState } from 'react';
+import { Container, Typography, TextField, Button, Grid, Alert, CircularProgress, Box } from '@mui/material';
 import styles from '../styles/addCar.module.css';
 
 const AddCar = () => {
-  const [showAlert, setShowAlert] = React.useState(false);
+  const [formData, setFormData] = useState({
+    model: '',
+    make: '',
+    year: '',
+    price: '',
+    fuelConsumption: '',
+  });
+  const [showAlert, setShowAlert] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowAlert(true);
+    setLoading(true);
+    try {
+      await fetch('http://localhost:5000/novo-veiculo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          marca: formData.make,
+          modelo: formData.model,
+          ano: parseInt(formData.year, 10),
+          consumo: formData.fuelConsumption,
+          preco: parseFloat(formData.price),
+        }),
+      });
+      setFormData({
+        model: '',
+        make: '',
+        year: '',
+        price: '',
+        fuelConsumption: '',
+      });
+      setShowAlert(true);
+    } catch (error) {
+      console.error('Erro ao adicionar o carro:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <Container className={styles.container}>
-
-      <Typography variant="h2" color="#003366" gutterBottom>
+      <Typography variant="h2" color="#003366" gutterBottom className={styles.header}>
         Adicionar Novo Carro
       </Typography>
 
@@ -23,8 +62,11 @@ const AddCar = () => {
             <TextField
               label="Modelo"
               name="model"
+              value={formData.model}
+              onChange={handleChange}
               fullWidth
               required
+              className={styles.textField}
             />
           </Grid>
 
@@ -32,8 +74,24 @@ const AddCar = () => {
             <TextField
               label="Marca"
               name="make"
+              value={formData.make}
+              onChange={handleChange}
               fullWidth
               required
+              className={styles.textField}
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Ano"
+              name="year"
+              type="number"
+              value={formData.year}
+              onChange={handleChange}
+              fullWidth
+              required
+              className={styles.textField}
             />
           </Grid>
 
@@ -42,17 +100,11 @@ const AddCar = () => {
               label="Preço"
               name="price"
               type="number"
+              value={formData.price}
+              onChange={handleChange}
               fullWidth
               required
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-            <TextField
-              label="Motor"
-              name="engine"
-              fullWidth
-              required
+              className={styles.textField}
             />
           </Grid>
 
@@ -61,46 +113,11 @@ const AddCar = () => {
               label="Consumo de Combustível (km/l)"
               name="fuelConsumption"
               type="number"
+              value={formData.fuelConsumption}
+              onChange={handleChange}
               fullWidth
               required
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-            <TextField
-              label="Potência (hp)"
-              name="horsepower"
-              type="number"
-              fullWidth
-              required
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-            <TextField
-              label="Torque (Nm)"
-              name="torque"
-              type="number"
-              fullWidth
-              required
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              label="Aceleração (0-100 km/h) (s)"
-              name="acceleration"
-              type="number"
-              fullWidth
-              required
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-            <TextField
-              label="Transmissão"
-              name="transmission"
-              fullWidth
-              required
+              className={styles.textField}
             />
           </Grid>
 
@@ -109,22 +126,39 @@ const AddCar = () => {
               type="submit"
               variant="contained"
               color="primary"
-              className={styles.button}
+              className={`${styles.button} ${styles.addCarButton}`}
+              disabled={loading}
             >
               Adicionar Carro
             </Button>
           </Grid>
-
         </Grid>
 
         {showAlert && (
           <Alert severity="info" className={styles.alert}>
-            Esta página é apenas para fins apresentativos. A lógica de adição de carros não está implementada.
+            Carro adicionado com sucesso!
           </Alert>
         )}
-
       </form>
-      
+
+      {loading && (
+        <Box
+          sx={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 9999,
+          }}
+        >
+          <CircularProgress size={60} className={styles.spinner} />
+        </Box>
+      )}
     </Container>
   );
 };

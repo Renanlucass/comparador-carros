@@ -1,53 +1,55 @@
 .card {
   margin: 16px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
-  border: 1px solid #ddd;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .ImgContainer {
   width: 100%;
-  aspect-ratio: 4 / 2;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-bottom: 2px solid #eeeeee;
 }
 
 .ImgContainer img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 
 .model {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #333333;
-  margin: 0 8px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #000000;
+  margin: 0 16px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .make {
-  color: #666666;
-  margin: 8px 16px;
-  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+  margin: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .details {
-  color: #444444;
+  color: #555555;
   margin: 8px 16px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
 }
 
 .button-container {
@@ -57,31 +59,34 @@
 }
 
 .button {
-  background-color: #ef7d00;
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #ef7d00, #ffa500);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  border-radius: 50px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .button:hover {
-  background-color: #ffa500;
+  background: linear-gradient(135deg, #ffa500, #ff8c00);
   transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
   .model {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   
   .make, .details {
-    margin: 8px 8px;
+    margin: 8px;
   }
 
   .button {
-    padding: 8px 16px;
+    padding: 10px 20px;
+    font-size: 12px;
   }
 }
