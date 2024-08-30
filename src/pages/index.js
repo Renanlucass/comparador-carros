@@ -14,8 +14,12 @@ export default function Home() {
       try {
         const response = await fetch('http://localhost:5000/veiculos');
         const data = await response.json();
-        console.log('Dados dos carros recebidos:', data);
-        setCarsData(data);
+        
+        if (Array.isArray(data)) {
+          setCarsData(data);
+        } else {
+          console.error('Erro: A resposta da API não é um array:', data);
+        }
       } catch (error) {
         console.error('Erro ao buscar os dados dos carros:', error);
       }
@@ -54,11 +58,17 @@ export default function Home() {
         </Typography>
 
         <Grid container spacing={2}>
-          {carsData.map((car, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <CarCard car={car} />
-            </Grid>
-          ))}
+          {Array.isArray(carsData) && carsData.length > 0 ? (
+            carsData.map((car, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <CarCard car={car} />
+              </Grid>
+            ))
+          ) : (
+            <Typography variant="body1" color="textSecondary">
+              Nenhum carro disponível no momento.
+            </Typography>
+          )}
         </Grid>
       </Container>
     </>
