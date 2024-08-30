@@ -7,7 +7,7 @@ const CarCard = ({ car }) => {
     <Card className={styles.card}>
       <CardContent>
         <div className={styles.ImgContainer}>
-          <img src={car.image} alt={`${car.marca} ${car.modelo}`} />
+          <img src={car.imagem} alt={`${car.marca} ${car.modelo}`} />
         </div>
         <Typography variant="h5" component="div" className={styles.model}>
           {car.modelo}

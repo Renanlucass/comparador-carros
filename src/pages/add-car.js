@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Grid, Alert, CircularProgress, Box } from '@mui/material';
 import styles from '../styles/addCar.module.css';
+import Upload from '@/components/Upload';
 
 const AddCar = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,11 @@ const AddCar = () => {
     price: '',
     fuelConsumption: '',
   });
+
+  const [imageLink, setImageLink] = useState("");
+  const handleImageURLChange = imageUrl => {
+  setImageLink(imageUrl);
+};
   const [showAlert, setShowAlert] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -33,8 +39,10 @@ const AddCar = () => {
           ano: parseInt(formData.year, 10),
           consumo: formData.fuelConsumption,
           preco: parseFloat(formData.price),
+          imagem:imageLink
         }),
       });
+      console.log('imagem',imageLink)
       setFormData({
         model: '',
         make: '',
@@ -131,6 +139,10 @@ const AddCar = () => {
             >
               Adicionar Carro
             </Button>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Upload onURLChange={handleImageURLChange}/>
           </Grid>
         </Grid>
 
