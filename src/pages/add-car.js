@@ -14,14 +14,25 @@ const AddCar = () => {
 
   const [imageLink, setImageLink] = useState("");
   const handleImageURLChange = imageUrl => {
-  setImageLink(imageUrl);
-};
+    setImageLink(imageUrl);
+  };
+
   const [showAlert, setShowAlert] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+
+    let newValue = value;
+    if (name === 'year' && value.length > 4) {
+      newValue = value.slice(0, 4);
+    } else if (name === 'price' && value.length > 10) {
+      newValue = value.slice(0, 10);
+    } else if (name === 'fuelConsumption' && value.length > 5) {
+      newValue = value.slice(0, 5);
+    }
+
+    setFormData((prevData) => ({ ...prevData, [name]: newValue }));
   };
 
   const handleSubmit = async (e) => {
@@ -39,10 +50,10 @@ const AddCar = () => {
           ano: parseInt(formData.year, 10),
           consumo: formData.fuelConsumption,
           preco: parseFloat(formData.price),
-          imagem:imageLink
+          imagem: imageLink
         }),
       });
-      console.log('imagem',imageLink)
+
       setFormData({
         model: '',
         make: '',
@@ -75,6 +86,7 @@ const AddCar = () => {
               fullWidth
               required
               className={styles.textField}
+              inputProps={{ maxLength: 50 }}  
             />
           </Grid>
 
@@ -87,6 +99,7 @@ const AddCar = () => {
               fullWidth
               required
               className={styles.textField}
+              inputProps={{ maxLength: 50 }}
             />
           </Grid>
 
@@ -130,7 +143,7 @@ const AddCar = () => {
           </Grid>
 
           <Grid item xs={12}>
-            <Upload onURLChange={handleImageURLChange}/>
+            <Upload onURLChange={handleImageURLChange} />
           </Grid>
 
           <Grid item xs={12}>

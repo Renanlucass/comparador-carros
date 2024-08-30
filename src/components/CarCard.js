@@ -3,8 +3,12 @@ import { Card, CardContent, Typography, Grid } from '@mui/material';
 import styles from '../styles/CarCard.module.css';
 
 const CarCard = ({ car }) => {
-  return (
 
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price);
+  };
+
+  return (
     <Card className={styles.card}>
       <CardContent>
 
@@ -22,28 +26,22 @@ const CarCard = ({ car }) => {
 
         <Grid container spacing={1}>
           <Grid item xs={12}>
-
             <Typography variant="body2" className={styles.details}>
               <strong>Ano:</strong> {car.ano}
             </Typography>
-
           </Grid>
-          <Grid item xs={12}>
 
+          <Grid item xs={12}>
             <Typography variant="body2" className={styles.details}>
-              <strong>Preço:</strong> R${car.preco}
+              <strong>Preço:</strong> {formatPrice(car.preco)}
             </Typography>
-
           </Grid>
 
           <Grid item xs={12}>
-
             <Typography variant="body2" className={styles.details}>
               <strong>Consumo:</strong> {car.consumo} km/l
             </Typography>
-
           </Grid>
-          
         </Grid>
       </CardContent>
     </Card>
