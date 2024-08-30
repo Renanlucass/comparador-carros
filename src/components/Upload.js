@@ -1,6 +1,7 @@
 import { CldUploadWidget } from 'next-cloudinary';
 import Image from 'next/image';
 import { useState } from 'react';
+import styles from '../styles/upload.module.css';
 
 export default function Upload({ onURLChange, defaultImage }) {
   const [imageSelected, setImageSelected] = useState('');
@@ -11,39 +12,41 @@ export default function Upload({ onURLChange, defaultImage }) {
       onURLChange(imageUrl);
     } else {
       console.warn(
-        'Você precisa passar a prop onChange para o formulário de cadastro'
+        'Você precisa passar a prop onURLChange para o formulário de cadastro'
       );
     }
     console.log('Upload bem-sucedido. URL da imagem:', imageUrl);
-
     setImageSelected(imageUrl);
   }
 
   return (
-    <div>
-      {imageSelected ? (
-        <div >
-          <label>Imagem Selecionada:</label>
-          <Image
-            src={imageSelected}
-            alt='Imagem Selecionada'
-            width='100'
-            height='100'
-          />
-        </div>
-      ) : (
-        defaultImage && (
-          <div className={styles.image}>
-            <label>Imagem Padrão:</label>
+    <div className={styles.uploadContainer}>
+      <div className={styles.card}>
+        <div className={styles.imagePreview}>
+          {imageSelected ? (
             <Image
-              src={defaultImage}
-              alt='Imagem Padrão'
-              width='100'
-              height='100'
+              src={imageSelected}
+              alt='Imagem Selecionada'
+              layout='fill'
+              objectFit='cover'
+              className={styles.image}
             />
-          </div>
-        )
-      )}
+          ) : (
+            defaultImage && (
+              <div className={styles.defaultImageContainer}>
+                <label>Imagem Padrão:</label>
+                <Image
+                  src={defaultImage}
+                  alt='Imagem Padrão'
+                  layout='fill'
+                  objectFit='cover'
+                  className={styles.image}
+                />
+              </div>
+            )
+          )}
+        </div>
+      </div>
       <CldUploadWidget
         uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
         onSuccess={handleUploadSuccess}
@@ -59,9 +62,9 @@ export default function Upload({ onURLChange, defaultImage }) {
 
           return (
             <button
-            
               type='button'
               onClick={handleOnClick}
+              className={styles.uploadButton}
             >
               Enviar imagem
             </button>

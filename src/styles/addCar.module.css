@@ -14,7 +14,7 @@
 }
 
 .button, .addCarButton {
-    margin-top: 1rem;
+    width: 12rem;
     background: linear-gradient(135deg, #003366, #004080);
     color: white;
     border: none;
@@ -25,6 +25,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
+    margin-left: 4rem;
 }
 
 .button:hover, .addCarButton:hover {

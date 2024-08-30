@@ -130,6 +130,10 @@ const AddCar = () => {
           </Grid>
 
           <Grid item xs={12}>
+            <Upload onURLChange={handleImageURLChange}/>
+          </Grid>
+
+          <Grid item xs={12}>
             <Button
               type="submit"
               variant="contained"
@@ -141,9 +145,6 @@ const AddCar = () => {
             </Button>
           </Grid>
 
-          <Grid item xs={12}>
-            <Upload onURLChange={handleImageURLChange}/>
-          </Grid>
         </Grid>
 
         {showAlert && (

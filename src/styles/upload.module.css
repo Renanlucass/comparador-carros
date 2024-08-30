@@ -1,0 +1,49 @@
+.uploadContainer {
+  margin: 20px;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 10px;
+  position: relative;
+  background-color: #eaeaea;
+}
+
+.imagePreview {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.defaultImageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.uploadButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-left: 7%;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  margin-top: 10px;
+}
+
+.uploadButton:hover {
+  background-color: #0056b3;
+}
